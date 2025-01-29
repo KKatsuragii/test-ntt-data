@@ -64,8 +64,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: test
-      url: ${{ steps.vercel.outputs.url }}
+      name: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -85,8 +84,8 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
           prod: true
-
 
   notify:
     needs: [build, deploy]
