@@ -93,10 +93,19 @@ jobs:
     if: failure()
     steps:
       - name: Send email notification
-        uses: benc-uk/workflow-sendgrid@v1
+        uses: actions/github-script@v6
         with:
-          api-key: ${{ secrets.SENDGRID_API_KEY }}
-          from: ci-cd@example.com
-          to: developer@example.com
-          subject: CI/CD Pipeline Failed
-          body: The CI/CD pipeline failed at some step. Please check the logs for more details.
+          script: |
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey('${{ secrets.SENDGRID_API_KEY }}');
+            const msg = {
+              to: 'developer@example.com',
+              from: 'ci-cd@example.com',
+              subject: 'CI/CD Pipeline Failed',
+              text: 'The CI/CD pipeline failed at some step. Please check the logs for more details.',
+            };
+            sgMail.send(msg).then(() => {
+              console.log('Email sent');
+            }).catch((error) => {
+              console.error(error);
+            });
