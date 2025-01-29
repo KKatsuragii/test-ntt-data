@@ -93,13 +93,10 @@ jobs:
     if: failure()
     steps:
       - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
+        uses: benc-uk/workflow-sendgrid@v1
         with:
-          server_address: smtp.office365.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          api-key: ${{ secrets.SENDGRID_API_KEY }}
+          from: ci-cd@example.com
+          to: developer@example.com
           subject: CI/CD Pipeline Failed
           body: The CI/CD pipeline failed at some step. Please check the logs for more details.
-          to: developer@example.com
-          from: ${{ secrets.EMAIL_USERNAME }}
