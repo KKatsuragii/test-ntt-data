@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Minha Aplicação
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta é uma aplicação React criada com Create React App.
 
-## Available Scripts
+## Requisitos
 
-In the project directory, you can run:
+- Node.js (versão 14 ou superior)
+- npm (versão 6 ou superior)
+
+## Instalação
+
+Para instalar as dependências do projeto, execute o seguinte comando:
+
+```sh
+npm install
+```
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Inicia o servidor de desenvolvimento.  
+Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A página será recarregada se você fizer edições.  
+Você também verá quaisquer erros de lint no console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia o executor de testes no modo de observação interativo.  
+Veja a seção sobre [executando testes](https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compila o aplicativo para produção na pasta `build`.  
+Ele agrupa corretamente o React no modo de produção e otimiza a construção para o melhor desempenho.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A compilação é minificada e os nomes dos arquivos incluem os hashes.  
+Seu aplicativo está pronto para ser implantado!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Veja a seção sobre [implantação](https://facebook.github.io/create-react-app/docs/deployment) para mais informações.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Nota: esta é uma operação unilateral. Uma vez que você `eject`, você não pode voltar!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Se você não estiver satisfeito com a ferramenta de construção e as escolhas de configuração, você pode `eject` a qualquer momento. Este comando removerá a dependência de construção única do seu projeto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Em vez disso, ele copiará todos os arquivos de configuração e as dependências transitivas (Webpack, Babel, ESLint, etc.) diretamente para o seu projeto para que você tenha controle total sobre eles. Todos os comandos, exceto `eject`, ainda funcionarão, mas eles apontarão para os scripts copiados para que você possa ajustá-los. Neste ponto, você está por conta própria.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Estrutura do Projeto
 
-## Learn More
+- `src/`: Contém o código-fonte da aplicação.
+- `public/`: Contém os arquivos públicos que não são processados pelo Webpack.
+- `node_modules/`: Contém as dependências do projeto.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependências Principais
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `@babel/core`: ^7.26.7
+- `@testing-library/dom`: ^10.4.0
+- `@testing-library/jest-dom`: ^6.6.3
+- `@testing-library/react`: ^16.2.0
+- `cra-template`: 1.2.0
+- `react`: ^19.0.0
+- `react-dom`: ^19.0.0
+- `react-scripts`: 5.0.1
+- `web-vitals`: ^4.2.4
 
-### Code Splitting
+## Configuração do ESLint
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+O projeto está configurado para usar o ESLint com as seguintes extensões:
 
-### Analyzing the Bundle Size
+- `react-app`
+- `react-app/jest`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Browserslist
 
-### Making a Progressive Web App
+O projeto está configurado para suportar os seguintes navegadores:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Produção
 
-### Advanced Configuration
+- `>0.2%`
+- `not dead`
+- `not op_mini all`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Desenvolvimento
 
-### Deployment
+- `last 1 chrome version`
+- `last 1 firefox version`
+- `last 1 safari version`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Workflow de CI/CD
 
-### `npm run build` fails to minify
+Este projeto utiliza GitHub Actions para automação de CI/CD. O workflow realiza as seguintes etapas:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Execução dos Testes**: Roda os testes unitários para garantir que o código está funcionando corretamente.
+2. **Build da Aplicação**: Compila a aplicação para produção.
+3. **Criação de uma Release**: Cria uma nova release no GitHub com os artefatos de build.
+4. **Deploy na Vercel**: Faz o deploy da aplicação na Vercel.
