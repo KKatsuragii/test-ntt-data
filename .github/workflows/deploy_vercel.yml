@@ -86,20 +86,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
           prod: true
-
-  notify:
-    needs: [build, deploy]
-    runs-on: ubuntu-latest
-    if: failure()
-    steps:
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.office365.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: CI/CD Pipeline Failed
-          body: The CI/CD pipeline failed at some step. Please check the logs for more details.
-          to: developer@example.com
-          from: ${{ secrets.EMAIL_USERNAME }}
